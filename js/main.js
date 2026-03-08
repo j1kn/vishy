@@ -3,13 +3,13 @@
  * Handles mobile menu, carousel, smooth scrolling, and accessibility features
  */
 
-(function() {
+(function () {
   'use strict';
 
   // ========================================
   // Utility Functions
   // ========================================
-  
+
   /**
    * Debounce function to limit execution rate
    * @param {Function} func - Function to debounce
@@ -39,18 +39,18 @@
   // ========================================
   // Mobile Menu
   // ========================================
-  
+
   function initMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (!menuToggle || !navMenu) return;
 
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function () {
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
       this.setAttribute('aria-expanded', !isExpanded);
       navMenu.classList.toggle('active');
-      
+
       // Prevent body scroll when menu is open
       document.body.style.overflow = !isExpanded ? 'hidden' : '';
     });
@@ -66,10 +66,10 @@
     });
 
     // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!menuToggle.contains(event.target) && 
-          !navMenu.contains(event.target) && 
-          navMenu.classList.contains('active')) {
+    document.addEventListener('click', function (event) {
+      if (!menuToggle.contains(event.target) &&
+        !navMenu.contains(event.target) &&
+        navMenu.classList.contains('active')) {
         menuToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('active');
         document.body.style.overflow = '';
@@ -77,7 +77,7 @@
     });
 
     // Close menu on escape key
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && navMenu.classList.contains('active')) {
         menuToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('active');
@@ -90,7 +90,7 @@
   // ========================================
   // Header Scroll Effect
   // ========================================
-  
+
   function initHeaderScroll() {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -100,18 +100,18 @@
 
     function updateHeader() {
       const scrollY = window.scrollY;
-      
+
       if (scrollY > 50) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-      
+
       lastScrollY = scrollY;
       ticking = false;
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       if (!ticking) {
         window.requestAnimationFrame(updateHeader);
         ticking = true;
@@ -125,13 +125,13 @@
   // ========================================
   // Smooth Scrolling
   // ========================================
-  
+
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (!targetElement) return;
 
@@ -157,13 +157,13 @@
   // ========================================
   // Testimonials Carousel
   // ========================================
-  
+
   function initTestimonialsCarousel() {
     const track = document.getElementById('testimonials-track');
     const prevBtn = document.querySelector('.carousel-prev');
     const nextBtn = document.querySelector('.carousel-next');
     const dots = document.querySelectorAll('.carousel-dot');
-    
+
     if (!track || !prevBtn || !nextBtn || dots.length === 0) return;
 
     let currentIndex = 0;
@@ -265,7 +265,7 @@
   // ========================================
   // Active Navigation Link
   // ========================================
-  
+
   function initActiveNavigation() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -285,7 +285,7 @@
           navLinks.forEach(link => {
             link.classList.remove('active');
             link.removeAttribute('aria-current');
-            
+
             if (link.getAttribute('href') === `#${sectionId}`) {
               link.classList.add('active');
               link.setAttribute('aria-current', 'page');
@@ -302,12 +302,12 @@
   // ========================================
   // Contact Form
   // ========================================
-  
+
   function initContactForm() {
     const form = document.querySelector('.contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
       // Get form data
@@ -317,12 +317,12 @@
       // Basic validation
       let isValid = true;
       const requiredFields = form.querySelectorAll('[required]');
-      
+
       requiredFields.forEach(field => {
         if (!field.value.trim()) {
           isValid = false;
           field.classList.add('error');
-          
+
           // Add error message
           let errorMsg = field.parentElement.querySelector('.error-message');
           if (!errorMsg) {
@@ -352,11 +352,11 @@
         }
       }
 
-      // Success - in real implementation, send to server
+      // Success - in real implementation, send to server (info@vishy.co.uk)
       // For now, show success message
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
-      
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
 
@@ -364,9 +364,9 @@
       setTimeout(() => {
         submitBtn.textContent = 'Message Sent!';
         submitBtn.style.backgroundColor = '#10B981';
-        
+
         form.reset();
-        
+
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.textContent = originalText;
@@ -374,13 +374,13 @@
         }, 3000);
       }, 1500);
 
-      // Log form data (for development)
-      console.log('Form submitted:', data);
+      // Log form data (destination: info@vishy.co.uk)
+      console.log('Form submitted for info@vishy.co.uk:', data);
     });
 
     // Clear error state on input
     form.querySelectorAll('input, textarea').forEach(field => {
-      field.addEventListener('input', function() {
+      field.addEventListener('input', function () {
         this.classList.remove('error');
         const errorMsg = this.parentElement.querySelector('.error-message');
         if (errorMsg) errorMsg.remove();
@@ -391,17 +391,17 @@
   // ========================================
   // FAQ Accordion Enhancement
   // ========================================
-  
+
   function initFAQAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
       const summary = item.querySelector('.faq-question');
-      
+
       if (!summary) return;
 
       // Add animation for smooth opening/closing
-      summary.addEventListener('click', function() {
+      summary.addEventListener('click', function () {
         // Close other items (optional - for accordion behavior)
         // Uncomment the following lines if you want only one item open at a time
         /*
@@ -418,7 +418,7 @@
   // ========================================
   // Intersection Observer for Animations
   // ========================================
-  
+
   function initScrollAnimations() {
     if (prefersReducedMotion()) return;
 
@@ -464,12 +464,12 @@
   // ========================================
   // Focus Management
   // ========================================
-  
+
   function initFocusManagement() {
     // Skip to content focus
     const skipLink = document.querySelector('.skip-link');
     if (skipLink) {
-      skipLink.addEventListener('click', function(e) {
+      skipLink.addEventListener('click', function (e) {
         const main = document.getElementById('main-content');
         if (main) {
           e.preventDefault();
@@ -483,9 +483,9 @@
     // Trap focus in modal/mobile menu when open
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', function() {
+      menuToggle.addEventListener('click', function () {
         const isOpen = navMenu.classList.contains('active');
         if (isOpen) {
           const firstLink = navMenu.querySelector('a');
@@ -498,10 +498,10 @@
   // ========================================
   // Performance: Lazy Loading Images (if any)
   // ========================================
-  
+
   function initLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     if ('IntersectionObserver' in window) {
       const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -526,7 +526,7 @@
   // ========================================
   // Initialize Everything
   // ========================================
-  
+
   function init() {
     initMobileMenu();
     initHeaderScroll();

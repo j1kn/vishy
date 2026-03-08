@@ -232,18 +232,18 @@ textarea {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 var(--space-4);
+  padding: 0 var(--space-6);
 }
 
 @media (min-width: 640px) {
   .container {
-    padding: 0 var(--space-6);
+    padding: 0 var(--space-8);
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 0 var(--space-8);
+    padding: 0 var(--space-10);
   }
 }
 
@@ -470,7 +470,7 @@ p:last-child {
 }
 
 .logo-img {
-  height: 80px;
+  height: 56px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -478,7 +478,7 @@ p:last-child {
 
 @media (min-width: 768px) {
   .logo-img {
-    height: 100px;
+    height: 70px;
   }
 }
 

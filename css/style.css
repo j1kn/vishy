@@ -105,7 +105,7 @@ html {
   font-size: 16px;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 120px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -446,13 +446,13 @@ p:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 100px;
   padding: 0 var(--space-4);
 }
 
 @media (min-width: 768px) {
   .header-container {
-    height: 72px;
+    height: 120px;
     padding: 0 var(--space-6);
   }
 }
@@ -470,7 +470,7 @@ p:last-child {
 }
 
 .logo-img {
-  height: 48px;
+  height: 80px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -478,7 +478,7 @@ p:last-child {
 
 @media (min-width: 768px) {
   .logo-img {
-    height: 60px;
+    height: 100px;
   }
 }
 
@@ -569,7 +569,7 @@ p:last-child {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 64px;
+    top: 100px;
     left: 0;
     right: 0;
     background: white;
@@ -580,7 +580,7 @@ p:last-child {
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
-    max-height: calc(100vh - 64px);
+    max-height: calc(100vh - 100px);
     overflow-y: auto;
   }
 
@@ -635,7 +635,7 @@ p:last-child {
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 120px;
   padding-bottom: var(--space-8);
   background: linear-gradient(135deg, var(--color-background-alt) 0%, white 50%, var(--color-background-subtle) 100%);
   overflow: hidden;

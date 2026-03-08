@@ -1,18 +1,20 @@
 <svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- ICON (Moved and scaled for better horizontal fit) -->
-  <g id="icon" transform="translate(10, 10) scale(0.8)">
-    <path d="M60 40V30H70V40" fill="#F47C20"/>
-    <path d="M30 60L80 20L130 60" stroke="#F47C20" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M50 60V95H110V60" stroke="#F47C20" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <path d="M80 68C80 68 74 61 70 61C65 61 62 64 62 69C62 75 68 81 80 88C92 81 98 75 98 69C98 64 95 61 90 61C86 61 80 68 80 68Z" fill="#F47C20"/>
-    <path d="M30 95C30 95 25 120 45 130" stroke="#F47C20" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <path d="M130 95C130 95 135 120 115 130" stroke="#F47C20" stroke-width="10" stroke-linecap="round" fill="none"/>
-    <path d="M45 130C65 140 95 140 115 130" stroke="#F47C20" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- ICON GROUP -->
+  <g id="logo-icon" transform="translate(15, 15)">
+    <!-- Main House Shape - Simplified and Bold -->
+    <path d="M45 50L80 20L115 50V95H45V50Z" fill="#F47C20" />
+    <!-- Heart Cutout for 'Care' -->
+    <path d="M80 75C80 75 75 71 72 71C69 71 67 73 67 76C67 80 72 84 80 88C88 84 93 80 93 76C93 73 91 71 88 71C85 71 80 75 80 75Z" fill="white"/>
+    <!-- Supporting Hands - Stylized and Fluid -->
+    <path d="M30 85C30 85 25 105 45 115C60 122 100 122 115 115C135 105 130 85 130 85" stroke="#F47C20" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M50 110C60 115 100 115 110 110" stroke="#F47C20" stroke-width="5" stroke-linecap="round" fill="none"/>
   </g>
 
-  <!-- TEXT (Adjusted for better readability) -->
-  <g id="text" transform="translate(140, 30)">
-    <text x="0" y="45" font-family="'Poppins', sans-serif" font-weight="700" font-size="56" fill="#111111">Vishy</text>
-    <text x="2" y="75" font-family="'Inter', sans-serif" font-weight="600" font-size="20" fill="#4A4A4A">TEEN CARE HOUSING</text>
+  <!-- TYPOGRAPHY GROUP -->
+  <g id="logo-text" transform="translate(160, 30)">
+    <!-- Main Brand Name -->
+    <text x="0" y="45" font-family="'Poppins', sans-serif" font-weight="700" font-size="64" fill="#111111" letter-spacing="-0.02em">Vishy</text>
+    <!-- Descriptive Tagline -->
+    <text x="2" y="85" font-family="'Inter', sans-serif" font-weight="500" font-size="22" fill="#6B7280" letter-spacing="0.05em">TEEN CARE HOUSING</text>
   </g>
 </svg>
